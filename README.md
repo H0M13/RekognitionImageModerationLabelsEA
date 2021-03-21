@@ -1,6 +1,6 @@
 # IPFS + Amazon Rekognition Image Moderation External Adapter
 
-This external adapter downloads image bytes from [IPFS](https://ipfs.io/) given the content hash and requests image moderation labels from the [Amazon Rekognition](https://aws.amazon.com/rekognition/) cloud-based computer vision platform. The moderation labels are pinned to IPFS and a bytes32 hex string is returned from which the base58 encoded IPFS content hash [can be reconstructed](https://ethereum.stackexchange.com/questions/17094/how-to-store-ipfs-hash-using-bytes32). Currently [bytes32 is the maximum response size](https://docs.chain.link/docs/make-a-http-get-request#response-types) for the result of a Chainlink job.
+This external adapter downloads image bytes from [IPFS](https://ipfs.io/) given the content hash and requests image moderation labels from the [Amazon Rekognition](https://aws.amazon.com/rekognition/) cloud-based computer vision platform. The moderation labels are pinned to IPFS using [Pinata](https://pinata.cloud/) and a bytes32 hex string is returned from which the base58 encoded IPFS content hash [can be reconstructed](https://ethereum.stackexchange.com/questions/17094/how-to-store-ipfs-hash-using-bytes32). Currently [bytes32 is the maximum response size](https://docs.chain.link/docs/make-a-http-get-request#response-types) for the result of a Chainlink job.
 
 ## Environment variables
 
@@ -11,6 +11,8 @@ You will need an AWS account to be able to make requests to Amazon Rekognition. 
 | `AWS_ACCESS_KEY_ID`     | **Required** | The ID of your AWS access key        |        `ABCDEFGABCDEFG`        |
 | `AWS_SECRET_ACCESS_KEY` | **Required** | Your AWS secret access key           | `AbCdEfGaBcDeFgAbCdEfGaBcDeFg` |
 | `AWS_REGION`            | **Required** | The AWS region you would like to use |          `eu-west-2`           |
+| `PINATA_API_KEY`            | **Required** | Your Pinata API key |          `0298f5aa704402e9a63a`           |
+| `PINATA_SECRET_API_KEY`            | **Required** | Your Pinata secret API key |          `91f9d07d04da2970a43e0ecf44f9fe64504a064e0537c031668c91399bcc4392`           |
 
 ## Example request
 
